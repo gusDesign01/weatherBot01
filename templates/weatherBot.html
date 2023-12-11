@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Bot</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+<div class="title">
+    <h1>GoTravel! BOT</h1>
+</div>
+
+<div class="chatWindow">
+<div class="form">
+    <form method="POST" action="/">
+        <label>
+            <input type="text" name="user_input" placeholder="Enter your message">
+        </label>
+        <button type="submit">Send</button>
+    </form>
+</div>
+<div class="responseWindow">
+    {% if weather_data %}
+            {% for line in weather_data %}
+                <p>{{ line }}</p>
+            {% endfor %}
+    {% endif %}
+    {% if map_url %}
+        <img src="{{ map_url }}" alt="Map">
+    {% else %}
+        <p>No map available</p>
+    {% endif %}
+</div>
+</div>
+
+</body>
+</html>
